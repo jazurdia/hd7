@@ -10,7 +10,6 @@ public class BinaryTree<K, V> {
 
     /**
      * Inserts a new node with the given key and value
-     * 
      * @param key   the key of the new node
      * @param value the value of the new node
      */

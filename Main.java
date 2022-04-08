@@ -8,9 +8,10 @@ public class Main {
         Scanner sc1 = new Scanner(System.in);
         System.out.println("Enter the filepath: ");
         String filepath = sc1.nextLine();
+        sc1.close();
 
         Reader myReader = new Reader(filepath);
-        // Reader myReader = new Reader("diccionarioprueba.txt");
+        // Reader myReader = new Reader("diccionarioprueba.txt"); // for testing
         ArrayList<String> lines = myReader.readLines2();
 
         String[] english_array = new String[lines.size()];
@@ -23,26 +24,14 @@ public class Main {
             spanish_array[i] = line[1];
             frech_array[i] = line[2];
         }
-
-        // Creating the binary trees. The first one is the english tree, the second one
-        // is the spanish tree and the third one is the french tree
-
-        // create a binary search tree with the english words as keys and the spanish
-        // words as values using BinaryTree.java
         BinaryTree<String, String> myBinaryTree = new BinaryTree<String, String>();
         for (int i = 0; i < english_array.length; i++) {
             myBinaryTree.insert(english_array[i], spanish_array[i]);
         }
-
-        // create a binary search tree with the french words as keys and the spanish
-        // words as values using BinaryTree.java
         BinaryTree<String, String> myBinaryTree2 = new BinaryTree<String, String>();
         for (int i = 0; i < frech_array.length; i++) {
             myBinaryTree2.insert(frech_array[i], spanish_array[i]);
         }
-
-        // print all the elements of both the english and french trees. Use the search
-        // method from BinaryTree.java
         System.out.println("English tree: ");
         myBinaryTree.inOrder(myBinaryTree.root);
         System.out.println("French tree: ");
@@ -97,14 +86,11 @@ public class Main {
                         }
                     }
                     break;
-                case 3:
+                case 3: // translate a sentence from a txt file
                     System.out.println("Enter the filepath of the sentence you want to translate: ");
                     String filepath2 = sc.nextLine();
                     Reader myReader2 = new Reader(filepath2);
                     ArrayList<String> lines2 = myReader2.readLines2(); // each String is a line from the file.
-
-                    // search in lines2 for the words and print the translation using myBinaryTree
-                    // and myBinaryTree2
                     for (int i = 0; i < lines2.size(); i++) {
                         String[] line = lines2.get(i).split(" "); // separate the words in the line
                         for (int j = 0; j < line.length; j++) { // search for the words in the line
@@ -118,7 +104,7 @@ public class Main {
                         }
                     }
                     break;
-                case 4:
+                case 4: // modify the dictionary
                     System.out.println("You have selected to modify the dictionary. ");
                     System.out.println("Select English or French: ");
                     String language = sc.next();
@@ -127,16 +113,17 @@ public class Main {
                         String word3 = sc.next();
                         System.out.println("Enter the new translation: ");
                         String translation3 = sc.next();
-                        myBinaryTree.insert(word3, translation3);
+                        myBinaryTree.modify(word3, translation3);
                     } else if (language.equals("French")) {
                         System.out.println("Enter the word you want to modify: ");
-                        String word3 = sc.next();
+                        String word4 = sc.next();
                         System.out.println("Enter the new translation: ");
-                        String translation3 = sc.next();
-                        myBinaryTree2.insert(word3, translation3);
+                        String translation4 = sc.next();
+                        myBinaryTree2.modify(word4, translation4);
                     } else {
                         System.out.println("Invalid option");
                     }
+                    
                     break;
                 case 5:
                     System.out.println("You have selected to erase an entry from the dictionary. ");
@@ -156,6 +143,7 @@ public class Main {
                 case 6:
                     flag = true;
                     System.out.println("Goodbye!");
+                    sc.close();
                     break;
                 default:
                     System.out.println("Invalid option");
