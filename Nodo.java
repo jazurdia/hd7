@@ -7,6 +7,11 @@ public class Nodo<K, V> {
     K key;
     V value;
 
+    /**
+     * Constructor for the class
+     * 
+     * @param key
+     */
     public Nodo(K key) {
         this.key = key;
         root = null;

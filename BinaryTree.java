@@ -1,10 +1,19 @@
 public class BinaryTree<K, V> {
     Nodo root;
 
+    /**
+     * Constructor for the class
+     */
     public BinaryTree() {
         root = null;
     }
 
+    /**
+     * Inserts a new node with the given key and value
+     * 
+     * @param key   the key of the new node
+     * @param value the value of the new node
+     */
     public void insert(K key, V value) {
         Nodo n = new Nodo(key);
         n.value = value;
@@ -32,6 +41,12 @@ public class BinaryTree<K, V> {
 
     }
 
+    /**
+     * Searches for a node with the given key
+     * 
+     * @param key the key of the node to search for
+     * @return the node with the given key or null if it doesn't exist
+     */
     public V search(K key) {
         Nodo current = root;
         while (current != null) {
@@ -48,6 +63,11 @@ public class BinaryTree<K, V> {
 
     // create a method to print the whole tree inorder (left, root, right) using
     // anything but the root
+    /**
+     * Prints the tree inorder (left, root, right)
+     * 
+     * @param n the node to start from
+     */
     public void inOrder(Nodo n) {
         if (n != null) {
             inOrder(n.left);

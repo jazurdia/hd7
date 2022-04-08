@@ -5,14 +5,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        System.out.println("Hello World!");
+        Scanner sc1 = new Scanner(System.in);
+        System.out.println("Enter the filepath: ");
+        String filepath = sc1.nextLine();
 
-        // Scanner sc = new Scanner(System.in);
-        // System.out.println("Enter the filepath: ");
-        // String filepath = sc.nextLine();
-
-        // Reader myReader = new Reader(filepath);
-        Reader myReader = new Reader("diccionarioprueba.txt");
+        Reader myReader = new Reader(filepath);
+        // Reader myReader = new Reader("diccionarioprueba.txt");
         ArrayList<String> lines = myReader.readLines2();
 
         String[] english_array = new String[lines.size()];
@@ -99,8 +97,8 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Enter the filepath of the sentence you want to translate: ");
-                    String filepath = sc.nextLine();
-                    Reader myReader2 = new Reader(filepath);
+                    String filepath2 = sc.nextLine();
+                    Reader myReader2 = new Reader(filepath2);
                     ArrayList<String> lines2 = myReader2.readLines2(); // each String is a line from the file.
 
                     // search in lines2 for the words and print the translation using myBinaryTree
