@@ -5,12 +5,15 @@ public class Nodo<T> {
     public String llave;
     public T contenido;
 
-    public Nodo(int indice) {
-        this.llave = indice;
+    public Nodo(K key) {
+        this.llave = key;
         this.derecha = null;
         this.izquierda = null;
         this.padre = null;
         this.contenido = null;
+    }
+
+    public Nodo(K key) {
     }
 
     public void setContenido(T contenido) {
