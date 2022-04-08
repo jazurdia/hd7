@@ -1,5 +1,7 @@
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
-
+/**
+ * Obtenido de:
+ * https://www.youtube.com/watch?v=22AE6WklXBg&ab_channel=Codingraph
+ */
 public class Nodo<K, V> {
     Nodo root;
     Nodo right;

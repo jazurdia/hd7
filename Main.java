@@ -55,7 +55,9 @@ public class Main {
             System.out.println("1. English");
             System.out.println("2. French");
             System.out.println("3. Translate from a sentence");
-            System.out.println("4. Exit");
+            System.out.println("4. Modify the dictionary");
+            System.out.println("5. Erase an entry from the dictionary");
+            System.out.println("6. Exit");
             // scan the option
             Scanner sc = new Scanner(System.in);
             int option = sc.nextInt();
@@ -117,6 +119,41 @@ public class Main {
                     }
                     break;
                 case 4:
+                    System.out.println("You have selected to modify the dictionary. ");
+                    System.out.println("Select English or French: ");
+                    String language = sc.next();
+                    if (language.equals("English")) {
+                        System.out.println("Enter the word you want to modify: ");
+                        String word3 = sc.next();
+                        System.out.println("Enter the new translation: ");
+                        String translation3 = sc.next();
+                        myBinaryTree.insert(word3, translation3);
+                    } else if (language.equals("French")) {
+                        System.out.println("Enter the word you want to modify: ");
+                        String word3 = sc.next();
+                        System.out.println("Enter the new translation: ");
+                        String translation3 = sc.next();
+                        myBinaryTree2.insert(word3, translation3);
+                    } else {
+                        System.out.println("Invalid option");
+                    }
+                    break;
+                case 5:
+                    System.out.println("You have selected to erase an entry from the dictionary. ");
+                    System.out.println("Select English or French: ");
+                    String language2 = sc.next();
+                    if (language2.equals("English")) {
+                        System.out.println("Enter the word you want to erase: ");
+                        String word4 = sc.next();
+                        myBinaryTree.delete(word4);
+                    } else if (language2.equals("French")) {
+                        System.out.println("Enter the word you want to erase: ");
+                        String word4 = sc.next();
+                        myBinaryTree2.delete(word4);
+                    } else {
+                        System.out.println("Invalid option");
+                    }
+                case 6:
                     flag = true;
                     System.out.println("Goodbye!");
                     break;

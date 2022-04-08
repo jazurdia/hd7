@@ -61,8 +61,6 @@ public class BinaryTree<K, V> {
         return null;
     }
 
-    // create a method to print the whole tree inorder (left, root, right) using
-    // anything but the root
     /**
      * Prints the tree inorder (left, root, right)
      * 
@@ -73,6 +71,53 @@ public class BinaryTree<K, V> {
             inOrder(n.left);
             System.out.println(n.key + "," + n.value);
             inOrder(n.right);
+        }
+    }
+
+    /**
+     * Prints the tree preorder (root, left, right)
+     * 
+     * @param key   the key of the node to start from
+     * @param value the value of the node to start from
+     */
+    public void modify(K key, V value) {
+        Nodo current = root;
+        while (current != null) {
+            if (((String) key).compareTo((String) current.key) == 0) {
+                current.value = value;
+                return;
+            } else if (((String) key).compareTo((String) current.key) < 0) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
+    }
+
+    /**
+     * 
+     * @param key the key of the node to start from
+     */
+    public void delete(K key) {
+        Nodo current = root;
+        Nodo parent = null;
+        while (current != null) {
+            if (((String) key).compareTo((String) current.key) == 0) {
+                if (parent == null) {
+                    root = null;
+                } else if (((String) key).compareTo((String) parent.key) < 0) {
+                    parent.left = null;
+                } else {
+                    parent.right = null;
+                }
+                return;
+            } else if (((String) key).compareTo((String) current.key) < 0) {
+                parent = current;
+                current = current.left;
+            } else {
+                parent = current;
+                current = current.right;
+            }
         }
     }
 
