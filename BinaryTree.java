@@ -46,4 +46,14 @@ public class BinaryTree<K, V> {
         return null;
     }
 
+    // create a method to print the whole tree inorder (left, root, right) using
+    // anything but the root
+    public void inOrder(Nodo n) {
+        if (n != null) {
+            inOrder(n.left);
+            System.out.println(n.key + "," + n.value);
+            inOrder(n.right);
+        }
+    }
+
 }

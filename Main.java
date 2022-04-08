@@ -43,6 +43,13 @@ public class Main {
             myBinaryTree2.insert(frech_array[i], spanish_array[i]);
         }
 
+        // print all the elements of both the english and french trees. Use the search
+        // method from BinaryTree.java
+        System.out.println("English tree: ");
+        myBinaryTree.inOrder(myBinaryTree.root);
+        System.out.println("French tree: ");
+        myBinaryTree2.inOrder(myBinaryTree2.root);
+
         boolean flag = false;
         while (!flag) {
             // menu
@@ -113,6 +120,7 @@ public class Main {
                     break;
                 case 4:
                     flag = true;
+                    System.out.println("Goodbye!");
                     break;
                 default:
                     System.out.println("Invalid option");
