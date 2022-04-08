@@ -74,26 +74,6 @@ public class BinaryTree<K, V> {
     }
 
     /**
-     * Prints the tree preorder (root, left, right)
-     * 
-     * @param key   the key of the node to start from
-     * @param value the value of the node to start from
-     */
-    public void modify(K key, V value) {
-        Nodo current = root;
-        while (current != null) {
-            if (((String) key).compareTo((String) current.key) == 0) {
-                current.value = value;
-                return;
-            } else if (((String) key).compareTo((String) current.key) < 0) {
-                current = current.left;
-            } else {
-                current = current.right;
-            }
-        }
-    }
-
-    /**
      * 
      * @param key the key of the node to start from
      */
