@@ -8,7 +8,6 @@ public class Main {
         Scanner sc1 = new Scanner(System.in);
         System.out.println("Enter the filepath: ");
         String filepath = sc1.nextLine();
-        sc1.close();
 
         Reader myReader = new Reader(filepath);
         // Reader myReader = new Reader("diccionarioprueba.txt"); // for testing
@@ -104,28 +103,24 @@ public class Main {
                         }
                     }
                     break;
-                case 4: // modify the dictionary
-                    System.out.println("You have selected to modify the dictionary. ");
+                case 4: // erases and adds a new node. 
                     System.out.println("Select English or French: ");
-                    String language = sc.next();
-                    if (language.equals("English")) {
-                        System.out.println("Enter the word you want to modify: ");
-                        String word3 = sc.next();
-                        System.out.println("Enter the new translation: ");
-                        String translation3 = sc.next();
-                        myBinaryTree.modify(word3, translation3);
-                    } else if (language.equals("French")) {
-                        System.out.println("Enter the word you want to modify: ");
-                        String word4 = sc.next();
-                        System.out.println("Enter the new translation: ");
-                        String translation4 = sc.next();
-                        myBinaryTree2.modify(word4, translation4);
-                    } else {
-                        System.out.println("Invalid option");
+                    String language = sc.next();                        
+                    System.out.println("Enter the key of the word you want to modify: ");
+                    String key = sc.next();
+                    System.out.println("Enter the new translation: ");
+                    String translation3 = sc.next();
+
+                    if(language.equals("English")){
+                        myBinaryTree.delete(key);
+                        myBinaryTree.insert(key, translation3);
                     }
-                    
+                    else if(language.equals("French")){
+                        myBinaryTree2.delete(key);
+                        myBinaryTree2.insert(key, translation3);
+                    }
                     break;
-                case 5:
+                case 5: // erases a node
                     System.out.println("You have selected to erase an entry from the dictionary. ");
                     System.out.println("Select English or French: ");
                     String language2 = sc.next();
@@ -140,10 +135,10 @@ public class Main {
                     } else {
                         System.out.println("Invalid option");
                     }
+                    break;
                 case 6:
                     flag = true;
                     System.out.println("Goodbye!");
-                    sc.close();
                     break;
                 default:
                     System.out.println("Invalid option");
