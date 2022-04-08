@@ -1,7 +1,7 @@
-public class BinayTree<K, V> {
+public class BinaryTree<K, V> {
     Nodo root;
 
-    public BinayTree() {
+    public BinaryTree() {
         root = null;
     }
 
